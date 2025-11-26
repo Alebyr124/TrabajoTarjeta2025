@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/mgonzalesips/TrabajoTarjeta2025/graph/badge.svg?token=XI7V37W69W)](https://codecov.io/gh/mgonzalesips/TrabajoTarjeta2025)
+[![codecov](https://codecov.io/github/Alebyr124/TrabajoTarjeta2025/graph/badge.svg?token=UCBHAPW8BB)](https://codecov.io/github/Alebyr124/TrabajoTarjeta2025)
 
 ## Mesa Diciembre (3/12)
 
