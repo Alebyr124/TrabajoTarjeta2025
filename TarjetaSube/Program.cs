@@ -1,132 +1,186 @@
 ﻿using System;
+using System.Collections.Generic;
 using TrabajoTarjeta;
+using TarjetaSube;
 
-
-internal class Program
+namespace TrabajoTarjeta
 {
-   static void Main()
-   {
-       Tarjeta tarjeta = null;
-       Colectivo colectivo = null;
+    class Program
+    {
+        // Lista de colectivos disponibles para simular distintas líneas
+        static List<Colectivo> colectivos = new List<Colectivo>();
+        static Tarjeta miTarjeta;
 
-       Console.WriteLine("Indique si tiene alguna franquicia en su tarjeta\n");
-       Console.WriteLine("\n1. Boleto Gratuito Estudiantil");
-       Console.WriteLine("\n2. Medio Boleto Estudiantil");
-       Console.WriteLine("\n3. Franquicia Completa");
-       Console.WriteLine("\n4. No tengo Franquicia");
-       Console.Write("\n\nSeleccione una opción: ");
-       string opcionT = Console.ReadLine();
-       bool salirT = false;
+        static void Main(string[] args)
+        {
+            InicializarColectivos();
+            ConfigurarTarjeta();
+            MenuPrincipal();
+        }
 
-       while (!salirT)
-       {
-           switch (opcionT)
-           {
-               case "1":
-                   tarjeta = new BoletoGratuitoEstudiantil();
-                   Console.WriteLine("\nBeneficio de Franquicia Cargado");
-                   Console.WriteLine("\n\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   salirT = true;
-                   break;
-               case "2":
-                   tarjeta = new MedioBoletoEstudiantil();
-                   Console.WriteLine("\nBeneficio de Franquicia Cargado");
-                   Console.WriteLine("\n\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   salirT = true;
-                   break;
-               case "3":
-                   tarjeta = new FranquiciaCompleta();
-                   Console.WriteLine("\nBeneficio de Franquicia Cargado");
-                   Console.WriteLine("\n\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   salirT = true;
-                   break;
-               case "4":
-                   tarjeta = new SinFranquicia();
-                   Console.WriteLine("\nNingun Beneficio de Franquicia Cargado");
-                   Console.WriteLine("\n\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   salirT = true;
-                   break;
-               default:
-                   Console.WriteLine("Opción inválida.");
-                   Console.WriteLine("\n\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   break;
-           }
-       }
+        static void InicializarColectivos()
+        {
+            colectivos.Add(new ColectivoUrbano("101 (Urbano - $1580)"));
+            colectivos.Add(new ColectivoUrbano("144 (Urbano - $1580)")); // Otra línea urbana para probar trasbordo
+            colectivos.Add(new ColectivoInterurbano("35/9 (Interurbano - $3000)"));
+        }
 
-       bool salir = false;
+        static void ConfigurarTarjeta()
+        {
+            Console.Clear();
+            Console.WriteLine("=== BIENVENIDO AL SISTEMA SUBE ===");
+            Console.WriteLine("Por favor, seleccione el tipo de tarjeta para esta sesión:");
+            Console.WriteLine("1. Tarjeta Común (Sin Franquicia)");
+            Console.WriteLine("2. Medio Boleto Estudiantil");
+            Console.WriteLine("3. Boleto Gratuito Estudiantil");
+            Console.WriteLine("4. Franquicia Completa (Jubilados/Policía)");
+            Console.Write("\nOpción: ");
 
-       while (!salir)
-       {
+            string opcion = Console.ReadLine();
 
-           Console.Clear();
-           Console.WriteLine("Bienvenido al sistema de transporte público\n");
-           Console.WriteLine($"Saldo actual de la tarjeta: ${tarjeta.Saldo:F2}");
-           Console.WriteLine("\nSeleccione una opción:");
-           Console.WriteLine("1. Cargar tarjeta");
-           Console.WriteLine("2. Elegir línea");
-           Console.WriteLine("3. Pagar boleto");
-           Console.WriteLine("4. Salir");
-           Console.Write("\nSeleccione una opción: ");
-           string opcion = Console.ReadLine();
+            switch (opcion)
+            {
+                case "1":
+                    miTarjeta = new SinFranquicia();
+                    break;
+                case "2":
+                    miTarjeta = new MedioBoletoEstudiantil();
+                    break;
+                case "3":
+                    miTarjeta = new BoletoGratuitoEstudiantil();
+                    break;
+                case "4":
+                    miTarjeta = new FranquiciaCompleta();
+                    break;
+                default:
+                    Console.WriteLine("Opción inválida. Se usará Tarjeta Común por defecto.");
+                    miTarjeta = new SinFranquicia();
+                    break;
+            }
 
-           switch (opcion)
-           {
-               case "1":
-                   Console.Clear();
-                   tarjeta.CargarTarjeta(tarjeta);
-                   Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   break;
+            Console.WriteLine($"\nTarjeta creada: {miTarjeta.TipoTarjeta}");
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
+        }
 
-               case "2":
-                   Console.Clear();
-                   Console.Write("Ingrese la línea de colectivo (ej. 143): ");
-                   string linea = Console.ReadLine();
-                   colectivo = new Colectivo(linea, false);
-                   Console.WriteLine($"Línea {linea} seleccionada.");
-                   Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   break;
+        static void MenuPrincipal()
+        {
+            bool continuar = true;
 
-               case "3":
-                   Console.Clear();
-                   if (colectivo == null)
-                   {
-                       Console.WriteLine("Primero seleccione una línea (opción 2).");
-                   }
-                   else
-                   {
-                       Boleto boleto;
-                       bool pagoExitoso = colectivo.PagarCon(tarjeta, colectivo, out boleto);
-                       if (pagoExitoso)
-                       {
-                           boleto.Imprimir();
-                       }
-                       else
-                       {
-                           Console.WriteLine("Saldo insuficiente para pagar el boleto.");
-                       }
-                   }
-                   Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   break;
+            while (continuar)
+            {
+                Console.Clear();
+                MostrarEstadoTarjeta();
 
-               case "4":
-                   Console.Clear();
-                   salir = true;
-                   break;
+                Console.WriteLine("\n--- MENÚ PRINCIPAL ---");
+                Console.WriteLine("1. Cargar Saldo");
+                Console.WriteLine("2. Viajar (Elegir Colectivo)");
+                Console.WriteLine("3. Cambiar de Tarjeta (Reiniciar)");
+                Console.WriteLine("4. Salir");
+                Console.Write("\nSeleccione una opción: ");
 
-               default:
-                   Console.WriteLine("Opción inválida.");
-                   Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                   Console.ReadKey();
-                   break;
-           }
-       }
-   }
+                string opcion = Console.ReadLine();
+
+                switch (opcion)
+                {
+                    case "1":
+                        MenuCarga();
+                        break;
+                    case "2":
+                        MenuViaje();
+                        break;
+                    case "3":
+                        ConfigurarTarjeta(); // Reinicia la tarjeta
+                        break;
+                    case "4":
+                        continuar = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida.");
+                        break;
+                }
+            }
+        }
+
+        static void MostrarEstadoTarjeta()
+        {
+            Console.WriteLine("========================================");
+            Console.WriteLine($" TARJETA: {miTarjeta.TipoTarjeta}");
+            Console.WriteLine($" ID:      {miTarjeta.Id}");
+            Console.WriteLine($" SALDO:   ${miTarjeta.Saldo:F2}");
+            if (miTarjeta.SaldoPendiente > 0)
+            {
+                Console.WriteLine($" PENDIENTE DE ACREDITACIÓN: ${miTarjeta.SaldoPendiente:F2}");
+            }
+            Console.WriteLine("========================================");
+        }
+
+        static void MenuCarga()
+        {
+            Console.Clear();
+            Console.WriteLine("--- CARGAR SALDO ---");
+            Console.WriteLine("Montos aceptados: 2000, 3000, 4000, 5000, 10000, 15000, 20000, 25000, 30000");
+            Console.Write("Ingrese monto a cargar: ");
+
+            if (double.TryParse(Console.ReadLine(), out double monto))
+            {
+                bool resultado = miTarjeta.CargarTarjeta(monto);
+                if (resultado)
+                {
+                    Console.WriteLine($"¡Carga exitosa! Se sumaron ${monto} (o quedaron pendientes si superó el límite).");
+                }
+                else
+                {
+                    Console.WriteLine("Error: Monto no permitido por el sistema.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida.");
+            }
+            Console.WriteLine("\nPresione cualquier tecla para volver...");
+            Console.ReadKey();
+        }
+
+        static void MenuViaje()
+        {
+            Console.Clear();
+            Console.WriteLine("--- SELECCIONE EL COLECTIVO ---");
+            for (int i = 0; i < colectivos.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {colectivos[i].Linea} (Tarifa base: ${colectivos[i].Tarifa})");
+            }
+            Console.WriteLine("0. Cancelar");
+            Console.Write("\nOpción: ");
+
+            if (int.TryParse(Console.ReadLine(), out int opcion) && opcion > 0 && opcion <= colectivos.Count)
+            {
+                Colectivo colectivoElegido = colectivos[opcion - 1];
+
+                // Intentar pagar
+                Console.WriteLine("\nProcesando pago...");
+                Boleto boleto = colectivoElegido.PagarCon(miTarjeta);
+
+                if (boleto != null)
+                {
+                    Console.WriteLine("\n¡VIAJE ACEPTADO!");
+                    Console.WriteLine("--------------------------------");
+                    boleto.Imprimir();
+                    Console.WriteLine("--------------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("\nX VIAJE RECHAZADO X");
+                    Console.WriteLine("Posibles causas: Saldo insuficiente, horario no permitido o restricción de tiempo.");
+                }
+            }
+            else if (opcion != 0)
+            {
+                Console.WriteLine("Colectivo no válido.");
+            }
+
+            Console.WriteLine("\nPresione cualquier tecla para volver...");
+            Console.ReadKey();
+        }
+    }
 }

@@ -1,0 +1,32 @@
+## Directorios de compilación (Lo más importante)
+bin/
+obj/
+
+## Archivos de usuario y configuración de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code
+.vscode/
+
+## Archivos de salida y logs
+*.log
+TestResult.xml
+
+## Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+## NuGet (Gestor de paquetes)
+packages/
+*.nupkg
+project.lock.json
+*.nuget.props
+*.nuget.targets
+
+## Rider (Si usas JetBrains Rider)
+.idea/
+*.sln.iml

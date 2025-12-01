@@ -7,7 +7,6 @@ namespace TrabajoTarjeta
         public double SaldoRestante { get; }
         public DateTime FechaEmision { get; } = DateTime.Now;
         public string TipoTarjeta { get; set; }
-        public float TotalAbonado { get; set; }
         public string IdTarjeta { get; set; }
 
 

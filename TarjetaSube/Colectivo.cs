@@ -1,43 +1,27 @@
-﻿using System;
-
-namespace TrabajoTarjeta
+﻿namespace TrabajoTarjeta
 {
     public class Colectivo
     {
-        public const double TARIFA_BASICA = 1580;
-        public const double TARIFA_BASICA_INTERURBANO = 3000;
-        private string linea;
-        private bool esInterurbano;
+        protected string linea;
 
-        public Colectivo(string linea, bool esInterurbano)
+        public Colectivo(string linea)
         {
             this.linea = linea;
-            this.esInterurbano = esInterurbano;
         }
 
-        public bool PagarCon(Tarjeta tarjeta, Colectivo colectivo, out Boleto boleto)
+        public string Linea => linea;
+        public virtual double Tarifa { get; }
+
+        public Boleto PagarCon(Tarjeta tarjeta)
         {
-            boleto = null;
-            if (esInterurbano)
-            {
-                if (tarjeta.Pagar(TARIFA_BASICA_INTERURBANO, colectivo))
-                {
-                    boleto = new Boleto(linea, tarjeta);
-                    return true;
-                }
-                return false;
-            }
-            else
-            {
-                if (tarjeta.Pagar(TARIFA_BASICA, colectivo))
-                {
-                    boleto = new Boleto(linea, tarjeta);
-                    return true;
-                }
-                return false;
-            }
-        }
+            double? montoPagado = tarjeta.Pagar(Tarifa, Linea);
 
-        public string ObtenerLinea() => linea;
+            if (montoPagado.HasValue)
+            {
+                return new Boleto(Linea, tarjeta);
+            }
+
+            return null;
+        }
     }
 }
