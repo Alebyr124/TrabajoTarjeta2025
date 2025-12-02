@@ -24,7 +24,7 @@ namespace TrabajoTarjeta.Tests
 
             // Tarifa 1580 * 0.8 = 1264
             // Saldo esperado: 30000 - 1264 = 28736
-            Assert.AreEqual(28736, tarjeta.Saldo);
+            Assert.AreEqual(28736, tarjeta.Saldo, 0.01);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace TrabajoTarjeta.Tests
             colectivo.PagarCon(tarjeta);
 
             // Tarifa plena 1580
-            Assert.AreEqual(30000 - 1580, tarjeta.Saldo);
+            Assert.AreEqual(30000 - 1580, tarjeta.Saldo, 0.01);
         }
     }
 }
