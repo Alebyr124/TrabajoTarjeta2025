@@ -7,7 +7,7 @@ using System.Reflection;
 namespace TrabajoTarjeta.Tests
 {
     [TestFixture]
-    public class TestIntegrationNUnit
+    public class TestIntegracion
     {
         private MiBiciTuBici estacion;
         private Colectivo colectivoUrbano;
@@ -30,7 +30,7 @@ namespace TrabajoTarjeta.Tests
 
             BoletoMiBiciTuBici boleto = estacion.RetirarBici(tarjeta);
 
-            Assert.IsNotNull(boleto, "El boleto no deberÌa ser null si hay saldo suficiente.");
+            Assert.IsNotNull(boleto, "El boleto no deber√≠a ser null si hay saldo suficiente.");
             Assert.AreEqual(saldoInicial - MiBiciTuBici.TARIFA, tarjeta.Saldo, 0.01, "El saldo descontado no coincide con la tarifa.");
         }
 
@@ -44,8 +44,8 @@ namespace TrabajoTarjeta.Tests
 
             BoletoMiBiciTuBici boleto = estacion.RetirarBici(tarjeta);
 
-            Assert.IsNull(boleto, "El sistema deberÌa rechazar el retiro por saldo insuficiente.");
-            Assert.AreEqual(saldoInicial, tarjeta.Saldo, "El saldo no deberÌa cambiar tras un rechazo.");
+            Assert.IsNull(boleto, "El sistema deber√≠a rechazar el retiro por saldo insuficiente.");
+            Assert.AreEqual(saldoInicial, tarjeta.Saldo, "El saldo no deber√≠a cambiar tras un rechazo.");
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace TrabajoTarjeta.Tests
 
             // 2. Simular paso del tiempo: 2.5 horas
             // Esto asegura que el exceso sea de 1.5 horas. Math.Ceiling(1.5) = 2 multas.
-            // Usar 3 horas exactas es peligroso por los milisegundos de ejecuciÛn.
+            // Usar 3 horas exactas es peligroso por los milisegundos de ejecuci√≥n.
             CambiarFechaRetiroBici(boleto, DateTime.Now.AddHours(-2.5));
 
             double saldoAntesDevolucion = tarjeta.Saldo;
@@ -72,13 +72,13 @@ namespace TrabajoTarjeta.Tests
             // Esperamos 2 multas de 1000 c/u = 2000
             double multaEsperada = 2000;
 
-            Assert.AreEqual(saldoAntesDevolucion - multaEsperada, tarjeta.Saldo, 0.01, "No se cobrÛ la multa correctamente al devolver.");
+            Assert.AreEqual(saldoAntesDevolucion - multaEsperada, tarjeta.Saldo, 0.01, "No se cobr√≥ la multa correctamente al devolver.");
         }
 
         [Test]
         public void Test_MedioBoleto_DosViajesConEspera()
         {
-            // Validamos que sea horario h·bil, sino NUnit ignora el test (pasa en amarillo)
+            // Validamos que sea horario h√°bil, sino NUnit ignora el test (pasa en amarillo)
             if (DateTime.Now.Hour < 6 || DateTime.Now.Hour > 22)
             {
                 Assert.Ignore("Test saltado por horario nocturno (fuera de 06:00-22:00).");
@@ -91,19 +91,19 @@ namespace TrabajoTarjeta.Tests
             CambiarFechaUltimoViaje(tarjeta, DateTime.Now.AddMinutes(-20));
 
             colectivoUrbano.PagarCon(tarjeta);
-            Assert.AreEqual(4000 - tarifaMedia, tarjeta.Saldo, 0.01, "El primer viaje no cobrÛ medio boleto.");
+            Assert.AreEqual(4000 - tarifaMedia, tarjeta.Saldo, 0.01, "El primer viaje no cobr√≥ medio boleto.");
 
             CambiarFechaUltimoViaje(tarjeta, DateTime.Now.AddMinutes(-6));
 
             colectivoUrbano.PagarCon(tarjeta);
             double saldoEsperadoFinal = 4000 - (tarifaMedia * 2);
-            Assert.AreEqual(saldoEsperadoFinal, tarjeta.Saldo, 0.01, "El segundo viaje no cobrÛ medio boleto.");
+            Assert.AreEqual(saldoEsperadoFinal, tarjeta.Saldo, 0.01, "El segundo viaje no cobr√≥ medio boleto.");
         }
 
         [Test]
         public void Test_MedioBoleto_LimiteDiario_TercerViaje()
         {
-            // Validamos que sea horario h·bil
+            // Validamos que sea horario h√°bil
             if (DateTime.Now.Hour < 6 || DateTime.Now.Hour > 22)
             {
                 Assert.Ignore("Test saltado por horario nocturno (fuera de 06:00-22:00).");
@@ -126,8 +126,8 @@ namespace TrabajoTarjeta.Tests
 
             Boleto boleto = colectivoUrbano.PagarCon(tarjeta);
 
-            Assert.IsNotNull(boleto, "El tercer viaje deberÌa emitirse.");
-            Assert.AreEqual(saldoAntesTercero - tarifaPlena, tarjeta.Saldo, 0.01, "El tercer viaje deberÌa cobrarse a tarifa plena.");
+            Assert.IsNotNull(boleto, "El tercer viaje deber√≠a emitirse.");
+            Assert.AreEqual(saldoAntesTercero - tarifaPlena, tarjeta.Saldo, 0.01, "El tercer viaje deber√≠a cobrarse a tarifa plena.");
         }
 
         [Test]
@@ -135,7 +135,7 @@ namespace TrabajoTarjeta.Tests
         {
             if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday || DateTime.Now.Hour < 6 || DateTime.Now.Hour > 22)
             {
-                Assert.Ignore("Test de transbordo ignorado por horario/dÌa no h·bil del sistema.");
+                Assert.Ignore("Test de transbordo ignorado por horario/d√≠a no h√°bil del sistema.");
             }
 
             MedioBoletoEstudiantil tarjeta = new MedioBoletoEstudiantil();
@@ -150,10 +150,10 @@ namespace TrabajoTarjeta.Tests
             Colectivo otraLinea = new ColectivoInterurbano("35/9");
             Boleto boletoTransbordo = otraLinea.PagarCon(tarjeta);
 
-            Assert.IsNotNull(boletoTransbordo, "El transbordo deberÌa emitirse.");
+            Assert.IsNotNull(boletoTransbordo, "El transbordo deber√≠a emitirse.");
 
             Assert.AreEqual(saldoDespuesPrimerViaje, tarjeta.Saldo, 0.01,
-                "El saldo no deberÌa cambiar. El Transbordo (Gratis) tiene prioridad sobre el Medio Boleto.");
+                "El saldo no deber√≠a cambiar. El Transbordo (Gratis) tiene prioridad sobre el Medio Boleto.");
         }
 
         private void CambiarFechaRetiroBici(BoletoMiBiciTuBici boleto, DateTime nuevaFecha)
