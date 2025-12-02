@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "qXM16Qa7uV4=",
-  "success": false,
+  "dgSpecHash": "JW3gAgpgUAE=",
+  "success": true,
   "projectFilePath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexis\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
@@ -18,17 +18,5 @@
     "C:\\Users\\Alexis\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
     "C:\\Users\\Alexis\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "No se encuentra el proyecto \"C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
-      "projectPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
-      "filePath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
-      "libraryId": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

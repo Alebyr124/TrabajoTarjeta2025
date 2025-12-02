@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\TrabajoTarjeta\TrabajoTarjeta.csproj" />
+		<ProjectReference Include="..\TarjetaSube\TarjetaSube.csproj" />
 	</ItemGroup>
 
 </Project>

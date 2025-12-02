@@ -381,6 +381,16 @@
             "related": ".xml"
           }
         }
+      },
+      "TarjetaSube/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/TarjetaSube.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TarjetaSube.dll": {}
+        }
       }
     }
   },
@@ -1016,14 +1026,19 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "TarjetaSube/1.0.0": {
+      "type": "project",
+      "path": "../TarjetaSube/TarjetaSube.csproj",
+      "msbuildProject": "../TarjetaSube/TarjetaSube.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "NUnit >= 3.13.3",
       "NUnit3TestAdapter >= 4.5.0",
+      "TarjetaSube >= 1.0.0",
       "coverlet.collector >= 3.2.0",
       "coverlet.msbuild >= 3.2.0"
     ]
@@ -1060,8 +1075,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj": {
-              "projectPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj"
+            "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
+              "projectPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj"
             }
           }
         }
@@ -1124,16 +1139,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "No se encuentra el proyecto \"C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj\". Compruebe que la referencia al proyecto sea válida y que exista el archivo de proyecto.",
-      "libraryId": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TrabajoTarjeta\\TrabajoTarjeta.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }
