@@ -9,12 +9,17 @@ namespace TrabajoTarjeta
         public double Saldo { get; set; }
         public string TipoTarjeta { get; set; }
         public string Id { get; set; }
+
         public DateTime fechaUltimoViaje = DateTime.MinValue;
+        public DateTime fechaTrasbordo = DateTime.MinValue;
+        public bool esTrasbordo;
+        
         public string ultimaLinea;
         public const double SALDO_NEGATIVO = 1200;
 
         public const double SALDO_MAXIMO = 56000;
         public double SaldoPendiente { get; set; }
+        
 
 
         private readonly double[] cargasAceptadas = { 2000, 3000, 4000, 5000, 10000, 15000, 20000, 25000, 30000 };
@@ -75,32 +80,40 @@ namespace TrabajoTarjeta
 
         public virtual double? Pagar(double tarifa, string lineaActual)
         {
-            bool esTrasbordo = false;
+            double tarifaActual = Trasbordo(tarifa, lineaActual);
+            if (tarifaActual == 0)
+                return 0;
 
             if (Saldo + SALDO_NEGATIVO >= tarifa)
             {
-                if ((DateTime.Now - fechaUltimoViaje).TotalHours < 1
-                    && DateTime.Now.DayOfWeek != DayOfWeek.Sunday
-                    && DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 22
-                    && ultimaLinea != null
-                    && ultimaLinea != lineaActual)
-                {
-                    esTrasbordo = true;
-                }
-
-                if (!esTrasbordo)
-                {
-                    Saldo -= tarifa;
-                }
-
                 fechaUltimoViaje = DateTime.Now;
                 ultimaLinea = lineaActual;
+                Saldo -= tarifa;
 
                 AcreditarCarga();
 
                 return tarifa;
             }
             return null;
+        }
+
+        public double Trasbordo(double tarifa, string lineaActual)
+        {   
+           if ((DateTime.Now - fechaTrasbordo).TotalHours < 1
+                && DateTime.Now.DayOfWeek != DayOfWeek.Sunday
+                && DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 22
+                && ultimaLinea != null
+                && ultimaLinea != lineaActual)
+           {
+                if (!esTrasbordo)
+                {
+                    fechaTrasbordo = DateTime.Now;
+                    esTrasbordo = true;
+                }
+                return 0;        
+           }
+
+            return tarifa;
         }
 
     }

@@ -16,6 +16,10 @@ namespace TarjetaSube
 
         public override double? Pagar(double tarifa, string lineaActual)
         {
+            double tarifaActual = Trasbordo(tarifa, lineaActual);
+            if (tarifaActual == 0)
+                return 0;
+
             if (DateTime.Now.Hour < 6 || DateTime.Now.Hour > 22)
             {
                 Console.WriteLine("La franquicia completa solo es válida entre las 6:00 y las 22:00 horas.");

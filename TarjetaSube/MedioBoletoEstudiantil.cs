@@ -24,6 +24,10 @@ namespace TarjetaSube
                 return base.Pagar(tarifa, lineaActual);
             }
 
+            double tarifaActual = Trasbordo(tarifa, lineaActual);
+            if (tarifaActual == 0)
+                return 0;
+
             DateTime ahora = DateTime.Now;
             DateTime hoy = DateTime.Today;
             double montoAPagar;

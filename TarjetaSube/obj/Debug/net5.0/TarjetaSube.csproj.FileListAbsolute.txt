@@ -31,3 +31,15 @@ C:\Users\Alexis\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0
 C:\Users\Alexis\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.pdb
 C:\Users\Alexis\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.genruntimeconfig.cache
 C:\Users\Alexis\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\ref\TarjetaSube.dll
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\bin\Debug\net5.0\TarjetaSube.deps.json
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\bin\Debug\net5.0\TarjetaSube.dll
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\bin\Debug\net5.0\ref\TarjetaSube.dll
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\bin\Debug\net5.0\TarjetaSube.pdb
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.csproj.AssemblyReference.cache
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.AssemblyInfoInputs.cache
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.AssemblyInfo.cs
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.csproj.CoreCompileInputs.cache
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.dll
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\ref\TarjetaSube.dll
+C:\Users\Punto Digital\Documents\GitHub\TrabajoTarjeta2025\TarjetaSube\obj\Debug\net5.0\TarjetaSube.pdb

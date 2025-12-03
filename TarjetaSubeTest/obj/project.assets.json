@@ -168,9 +168,7 @@
           "lib/netcoreapp3.1/Microsoft.TestPlatform.Utilities.dll": {},
           "lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.Common.dll": {},
           "lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {},
-          "lib/netcoreapp3.1/testhost.dll": {
-            "related": ".deps.json"
-          }
+          "lib/netcoreapp3.1/testhost.dll": {}
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.TestPlatform.CommunicationUtilities.dll": {},
@@ -180,9 +178,7 @@
           "lib/netcoreapp3.1/Microsoft.TestPlatform.Utilities.dll": {},
           "lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.Common.dll": {},
           "lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {},
-          "lib/netcoreapp3.1/testhost.dll": {
-            "related": ".deps.json"
-          }
+          "lib/netcoreapp3.1/testhost.dll": {}
         },
         "resource": {
           "lib/netcoreapp3.1/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": {
@@ -325,14 +321,10 @@
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "NuGet.Frameworks/6.5.0": {
@@ -350,14 +342,10 @@
           "NETStandard.Library": "2.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/nunit.framework.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/nunit.framework.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/nunit.framework.dll": {}
         },
         "build": {
           "build/NUnit.props": {}
@@ -372,14 +360,10 @@
       "System.Reflection.Metadata/1.6.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {}
         }
       },
       "TarjetaSube/1.0.0": {
@@ -1044,24 +1028,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexis\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Punto Digital\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
+      "projectUniqueName": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
       "projectName": "TarjetaSubeTest",
-      "projectPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
-      "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\obj\\",
+      "projectPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\TarjetaSubeTest.csproj",
+      "packagesPath": "C:\\Users\\Punto Digital\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSubeTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Punto Digital\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1075,8 +1054,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
-              "projectPath": "C:\\Users\\Alexis\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj"
+            "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj": {
+              "projectPath": "C:\\Users\\Punto Digital\\Documents\\GitHub\\TrabajoTarjeta2025\\TarjetaSube\\TarjetaSube.csproj"
             }
           }
         }
@@ -1085,13 +1064,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net5.0": {
@@ -1126,8 +1099,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -1136,7 +1108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }
